@@ -61,28 +61,28 @@ function t431__escapeHTML(string) {
         fakeDOM.body.innerHTML = str;
         return fakeDOM.body.childNodes;
       };
-    var parsedHtml;
+    var createdStructure;
     if (parseHTML(html)) {
-        parsedHtml = parseHTML(html)
+        createdStructure = parseHTML(html)
     } else {
-        parsedHtml = []
+        createdStructure = []
     }
-    for (var i = 0; i <parsedHtml.length; i++) {
-        if (parsedHtml[i] !== allowedTags) {
-            if (parsedHtml[i].nodeType !== 3 && parseHtml[i].nodeType !== 8) {
+    for (var i = 0; i <createdStructure.length; i++) {
+        if (createdStructure[i] !== allowedTags) {
+            if (createdStructure[i].nodeType !== 3 && parseHtml[i].nodeType !== 8) {
                     var temp = document.createElement(el.tagName);
                     allowedAttrs.forEach(function (value) {
-                            if (parsedHtml[i].getAttribute(value) !== null) {
+                            if (createdStructure[i].getAttribute(value) !== null) {
                                     temp.setAttribute(value, el.getAttribute(value).replace(/javascript:/gi, ''))
                             }
                     });
-                    temp.textContent = parsedHtml[i].textContent;
+                    temp.textContent = createdStructure[i].textContent;
                     result += temp.outerHTML
             } else {
-                    result += parsedHtml[i].textContent
+                    result += createdStructure[i].textContent
             }
         }
-    };
+    }
     return result
 }
 
